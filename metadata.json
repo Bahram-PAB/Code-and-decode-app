@@ -1,0 +1,6 @@
+{
+  "name": "Text Cryptor",
+  "description": "Secure text encryptor and decryptor using AES-256 with key derivation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
