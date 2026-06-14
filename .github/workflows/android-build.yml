@@ -1,6 +1,5 @@
 name: Android CI/CD Build
 
-# تعیین زمان اجرای اکشن (با هر Push یا Pull Request روی برانچ اصلی)
 on:
   push:
     branches: [ "main", "master" ]
@@ -11,12 +10,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    # اضافه کردن این بخش برای تغییر دایرکتوری پیش‌فرض به پوشه پروژه شما
+    defaults:
+      run:
+        working-directory: ./Code-and-decode-app-main
+
     steps:
-    # ۱. واکشی کدهای ریپازیتوری
     - name: Checkout the code
       uses: actions/checkout@v4
 
-    # ۲. تنظیم نسخه جاوا (برای پروژه‌های جدید اندروید نسخه ۱۷ پیشنهاد می‌شود)
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -24,15 +26,12 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    # ۳. دسترسی دادن به فایل گریدل برای اجرا در لینوکس
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
 
-    # ۴. اجرای فرآیند بیلد نسخه دیباگ اپلیکیشن
     - name: Build with Gradle
       run: ./gradlew assembleDebug
 
-    # ۵. ذخیره و آپلود فایل APK نهایی در گیت‌هاب برای دانلود شما
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
