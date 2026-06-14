@@ -23,26 +23,19 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    # ۳. پیدا کردن خودکار فایل gradlew و دادن دسترسی اجرایی به آن (در هر پوشه‌ای که باشد)
-    - name: Find and Grant execute permission for gradlew
-      run: |
-        GRADLEW_PATH=$(find . -name "gradlew" -print -quit)
-        if [ -z "$GRADLEW_PATH" ]; then
-          echo "Error: gradlew not found anywhere in the repository!"
-          exit 1
-        fi
-        echo "Found gradlew at: $GRADLEW_PATH"
-        chmod +x "$GRADLEW_PATH"
-        # ذخیره مسیر برای استفاده در مراحل بعدی
-        echo "GRADLEW_DIR=$(dirname "$GRADLEW_PATH")" >> $GITHUB_ENV
+    # ۳. نصب ابزار گریدل روی سرور گیت‌هاب
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
 
-    # ۴. اجرای فرآیند بیلد درون پوشه‌ای که gradlew پیدا شده
-    - name: Build with Gradle
+    # ۴. پیدا کردن پوشه‌ای که build.gradle.kts در آن است و اجرای بیلد با دستور سیستم
+    - name: Build with system Gradle
       run: |
-        cd ${{ env.GRADLEW_DIR }}
-        ./gradlew assembleDebug
+        BUILD_DIR=$(dirname $(find . -name "build.gradle.kts" | head -n 1))
+        echo "Building in directory: $BUILD_DIR"
+        cd "$BUILD_DIR"
+        gradle assembleDebug
 
-    # ۵. پیدا کردن خودکار فایل APK و آپلود آن
+    # ۵. پیدا کردن و آپلود فایل APK خروجی
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
