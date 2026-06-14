@@ -27,15 +27,21 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
 
-    # ۴. پیدا کردن پوشه‌ای که build.gradle.kts در آن است و اجرای بیلد با دستور سیستم
+    # ۴. ساخت فایل رمزنگاری دیباگ (کی‌استور) به صورت خودکار برای رفع خطای گریدل
+    - name: Generate Dummy Debug Keystore
+      run: |
+        BUILD_DIR=$(dirname $(find . -name "build.gradle.kts" | head -n 1))
+        echo "Generating keystore in: $BUILD_DIR"
+        keytool -genkey -v -keystore "$BUILD_DIR/debug.keystore" -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+
+    # ۵. اجرای فرآیند بیلد با دستور سیستم گریدل
     - name: Build with system Gradle
       run: |
         BUILD_DIR=$(dirname $(find . -name "build.gradle.kts" | head -n 1))
-        echo "Building in directory: $BUILD_DIR"
         cd "$BUILD_DIR"
         gradle assembleDebug
 
-    # ۵. پیدا کردن و آپلود فایل APK خروجی
+    # ۶. پیدا کردن و آپلود فایل APK خروجی
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
