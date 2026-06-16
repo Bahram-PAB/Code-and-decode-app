@@ -1,7 +1,4 @@
 <div align="center">
-<img width="800" height="446" alt="5010385006886587409" src="https://github.com/user-attachments/assets/8368aafb-f680-42c0-87a4-6988c4ba0310" />
-</div>
-<div align="center">
   <img width="800" height="446" alt="معرفی اپلیکیشن سیفرگارد" src="https://github.com/user-attachments/assets/8368aafb-f680-42c0-87a4-6988c4ba0310" />
 </div>
 
