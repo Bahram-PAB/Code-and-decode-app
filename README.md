@@ -24,7 +24,9 @@
 - **متن‌باز و رایگان**
 
 <br>
-
+<div align="center">
+<img width="800" height="446" alt="5010385006886587408" src="https://github.com/user-attachments/assets/d3516aa9-54ef-46a2-b023-5d9a2a2967ff" />
+</div>
 ## 🎯 موارد استفاده
 
 موارد استفاده این اپ بسته به فعالیت شما بسیار زیاد است اما ارسال **گانفیگ‌های مورد نیاز** از طریق اپ‌های داخلی یا پیام‌رسان‌ها به صورت رمز شده، یکی از موارد مد نظر من بوده است.
@@ -34,18 +36,20 @@
 ## ⚠️ مسئولیت‌پذیری
 
 من **هیچ مسئولیتی** در قبال استفاده نادرست و یا حساس از این اپ ندارم و صرفاً بابت **علاقه‌مندی** و آزمون هوش مصنوعی، این اپ را ساخته‌ام و در اختیار عموم قرار می‌دهم.
+</div>.
+<div align="center">
+<img width="446" height="800" alt="5010385006886587410" src="https://github.com/user-attachments/assets/19c8c000-dd18-4740-8034-1c98274683ec" />
+</div>
 
 <br>
 
 ## 📥 نصب و استفاده
 
-برای استفاده از اپلیکیشن، کافی است ریپازیتوری را کلون کنید:
+از قسمت ریلیز ها آخرین نسخه را دانلود و نصب کنبد . اگر خطای گوگل پروتکت داد مطابق تصویر زیر روی این نوشته را لمس کنید.
+<div align="center">
+<img width="502" height="682" alt="GP" src="https://github.com/user-attachments/assets/379189c7-2aab-485a-99ef-412f844062af" />
+</div>
 
-```bash
-git clone https://github.com/your-username/cipherguard.git
-```
-
-سپس فایل `index.html` را در مرورگر خود باز کنید.
 
 <br>
 
@@ -57,8 +61,6 @@ git clone https://github.com/your-username/cipherguard.git
 
 ## 📜 مجوز
 
-این پروژه تحت مجوز **MIT** منتشر شده است.
-
 <br>
 
 ---
@@ -69,12 +71,4 @@ git clone https://github.com/your-username/cipherguard.git
   <sub>🇮🇷 فارسی · متن‌باز · آزاد</sub>
 </div>
 
-</div>.
-<div align="center">
-<img width="446" height="800" alt="5010385006886587410" src="https://github.com/user-attachments/assets/19c8c000-dd18-4740-8034-1c98274683ec" />
-</div>
-
-<div align="center">
-<img width="800" height="446" alt="5010385006886587408" src="https://github.com/user-attachments/assets/d3516aa9-54ef-46a2-b023-5d9a2a2967ff" />
-</div>
 
