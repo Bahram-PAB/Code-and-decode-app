@@ -35,6 +35,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.res.painterResource
+import android.net.Uri
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
@@ -257,18 +259,19 @@ fun CryptoAppScreen(
                 }
             }
 
-            // Settings decoration icon
+            // Cleanup icon (Icon of Clear/Delete)
             IconButton(
                 onClick = {
-                    Toast.makeText(context, "سیفرگارد روی دستگاه شما کاملاً همگام و ایمن است 🔒", Toast.LENGTH_SHORT).show()
+                    viewModel.clearAll()
+                    Toast.makeText(context, "تمام فیلدها پاکسازی شدند 🧹", Toast.LENGTH_SHORT).show()
                 },
                 modifier = Modifier
                     .size(40.dp)
                     .background(CryptorThemeColors.ContainerDark, RoundedCornerShape(50))
             ) {
                 Icon(
-                    imageVector = Icons.Default.Settings,
-                    contentDescription = "تنظیمات دکوراسیون",
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = "پاکسازی",
                     tint = CryptorThemeColors.TextSecondary,
                     modifier = Modifier.size(20.dp)
                 )
@@ -864,27 +867,23 @@ fun CryptoAppScreen(
                 horizontalArrangement = Arrangement.SpaceAround,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(
-                    onClick = {
-                        Toast.makeText(context, "بخش مخزن امن به زودی فعال می‌شود", Toast.LENGTH_SHORT).show()
-                    }
-                ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.Lock,
-                            contentDescription = "مخزن",
-                            tint = CryptorThemeColors.LightPurple,
-                            modifier = Modifier.size(18.dp)
-                        )
-                        Text(
-                            text = "مخزن",
-                            fontSize = 8.sp,
-                            color = CryptorThemeColors.LightPurple,
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
+                // Section 1: App Version (displays "نسخه ۲" instead of Vault button, located at the right in RTL)
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(
+                        imageVector = Icons.Default.Info,
+                        contentDescription = "نسخه برنامه",
+                        tint = CryptorThemeColors.LightPurple,
+                        modifier = Modifier.size(18.dp)
+                    )
+                    Text(
+                        text = "نسخه ۲",
+                        fontSize = 8.sp,
+                        color = CryptorThemeColors.LightPurple,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
 
+                // Section 2: Cleanup button
                 IconButton(
                     onClick = {
                         viewModel.clearAll()
@@ -906,23 +905,61 @@ fun CryptoAppScreen(
                     }
                 }
 
-                IconButton(
-                    onClick = {
-                        Toast.makeText(context, "الگوریتم فعال: AES-256-CBC-PKCS5", Toast.LENGTH_SHORT).show()
-                    }
+                // Section 3: Professional branding icons row (GitHub and LinkedIn instead of Keys, located at the left in RTL)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.CheckCircle,
-                            contentDescription = "وضعیت کلیدها",
-                            tint = CryptorThemeColors.TextSecondary,
-                            modifier = Modifier.size(18.dp)
-                        )
-                        Text(
-                            text = "کلیدها",
-                            fontSize = 8.sp,
-                            color = CryptorThemeColors.TextSecondary
-                        )
+                    IconButton(
+                        onClick = {
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Bahram-PAB"))
+                                context.startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(context, "خطا در باز کردن مرورگر 🌐", Toast.LENGTH_SHORT).show()
+                            }
+                        },
+                        modifier = Modifier.size(36.dp)
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_github),
+                                contentDescription = "گیت‌هاب",
+                                tint = CryptorThemeColors.TextSecondary,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Text(
+                                text = "گیت‌هاب",
+                                fontSize = 8.sp,
+                                color = CryptorThemeColors.TextSecondary
+                            )
+                        }
+                    }
+
+                    IconButton(
+                        onClick = {
+                            try {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/bahram-pouralibaba-1a992239"))
+                                context.startActivity(intent)
+                            } catch (e: Exception) {
+                                Toast.makeText(context, "خطا در باز کردن مرورگر 🌐", Toast.LENGTH_SHORT).show()
+                            }
+                        },
+                        modifier = Modifier.size(36.dp)
+                    ) {
+                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_linkedin),
+                                contentDescription = "لینکدین",
+                                tint = CryptorThemeColors.TextSecondary,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Text(
+                                text = "لینکدین",
+                                fontSize = 8.sp,
+                                color = CryptorThemeColors.TextSecondary
+                            )
+                        }
                     }
                 }
             }
