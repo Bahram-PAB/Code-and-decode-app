@@ -1,21 +1,71 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+  <img width="800" height="446" alt="معرفی اپلیکیشن سیفرگارد" src="https://github.com/user-attachments/assets/8368aafb-f680-42c0-87a4-6988c4ba0310" />
 </div>
 
-# Run and deploy your AI Studio app
+<br>
 
-This contains everything you need to run your app locally.
+<div align="right" dir="rtl">
 
-View your app in AI Studio: https://ai.studio/apps/d64c43d4-aaee-49dc-a48d-ce702459bc0c
+# 🔐 اپلیکیشن رمزنگار سیفرگارد
 
-## Run Locally
+**سیفرگارد** یک اپلیکیشن ساده و فارسی است که با **هوش مصنوعی گوگل (Gemini)** ساخته شده است تا به شما کمک کند در موارد بحرانی و خاص، پیام‌های خود را به صورت **رمز شده** ارسال کنید و فقط به فرد مربوطه، از قبل یا به نحوی، کلید مخصوص را اطلاع دهید. به این ترتیب شما می‌توانید از پیام‌ها و متن‌های خود محافظت کنید.
 
-**Prerequisites:**  [Android Studio](https://developer.android.com/studio)
+<br>
+
+## ✨ ویژگی‌های کلیدی
+
+- **رمزگذاری امن با AES-256** — استاندارد پیشرفته رمزنگاری
+- **کاملاً آفلاین** — بدون نیاز به اینترنت
+- **حریم خصوصی شما، در دستان شما**
+- **رابط کاربری ساده و فارسی**
+- **متن‌باز و رایگان**
+
+<br>
+<div align="center">
+<img width="800" height="446" alt="5010385006886587408" src="https://github.com/user-attachments/assets/d3516aa9-54ef-46a2-b023-5d9a2a2967ff" />
+</div>
+## 🎯 موارد استفاده
+
+موارد استفاده این اپ بسته به فعالیت شما بسیار زیاد است اما ارسال **گانفیگ‌های مورد نیاز** از طریق اپ‌های داخلی یا پیام‌رسان‌ها به صورت رمز شده، یکی از موارد مد نظر من بوده است.
+
+<br>
+
+## ⚠️ مسئولیت‌پذیری
+
+من **هیچ مسئولیتی** در قبال استفاده نادرست و یا حساس از این اپ ندارم و صرفاً بابت **علاقه‌مندی** و آزمون هوش مصنوعی، این اپ را ساخته‌ام و در اختیار عموم قرار می‌دهم.
+</div>.
+<div align="center">
+<img width="446" height="800" alt="5010385006886587410" src="https://github.com/user-attachments/assets/19c8c000-dd18-4740-8034-1c98274683ec" />
+</div>
+
+<br>
+
+## 📥 نصب و استفاده
+
+از قسمت ریلیز ها آخرین نسخه را دانلود و نصب کنبد . اگر خطای گوگل پروتکت داد مطابق تصویر زیر روی این نوشته را لمس کنید.
+<div align="center">
+<img width="502" height="682" alt="GP" src="https://github.com/user-attachments/assets/379189c7-2aab-485a-99ef-412f844062af" />
+</div>
 
 
-1. Open Android Studio
-2. Select **Open** and choose the directory containing this project
-3. Allow Android Studio to fix any incompatibilities as it imports the project.
-4. Create a file named `.env` in the project directory and set `GEMINI_API_KEY` in that file to your Gemini API key (see `.env.example` for an example)
-5. Remove this line from the app's `build.gradle.kts` file: `signingConfig = signingConfigs.getByName("debugConfig")`
-6. Run the app on an emulator or physical device
+<br>
+
+## 🤝 مشارکت
+
+اگر ایده یا پیشنهادی دارید، خوشحال می‌شوم که در بهبود این پروژه مشارکت کنید. کافی است یک **Pull Request** یا **Issue** باز کنید.
+
+<br>
+
+## 📜 مجوز
+
+<br>
+
+---
+
+<div align="center">
+  <sub>ساخته‌شده با ❤️ و Gemini</sub>
+  <br>
+  <sub>🇮🇷 فارسی · متن‌باز · آزاد</sub>
+</div>
+
+
