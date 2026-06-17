@@ -863,8 +863,8 @@ fun CryptoAppScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 12.dp),
-                horizontalArrangement = Arrangement.SpaceAround,
+                    .padding(vertical = 12.dp, horizontal = 24.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // Section 1: App Version (displays "نسخه ۲" instead of Vault button, located at the right in RTL)
@@ -883,29 +883,7 @@ fun CryptoAppScreen(
                     )
                 }
 
-                // Section 2: Cleanup button
-                IconButton(
-                    onClick = {
-                        viewModel.clearAll()
-                        Toast.makeText(context, "تمامی فیلدها پاک شدند", Toast.LENGTH_SHORT).show()
-                    }
-                ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.Delete,
-                            contentDescription = "پاک کردن کلی",
-                            tint = CryptorThemeColors.TextSecondary,
-                            modifier = Modifier.size(18.dp)
-                        )
-                        Text(
-                            text = "پاکسازی",
-                            fontSize = 8.sp,
-                            color = CryptorThemeColors.TextSecondary
-                        )
-                    }
-                }
-
-                // Section 3: Professional branding icons row (GitHub and LinkedIn instead of Keys, located at the left in RTL)
+                // Section 2: Professional branding icons row (GitHub and LinkedIn instead of Keys, located at the left in RTL)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -927,7 +905,7 @@ fun CryptoAppScreen(
                                 contentDescription = "گیت‌هاب",
                                 tint = CryptorThemeColors.TextSecondary,
                                 modifier = Modifier.size(18.dp)
-                            )
+                              )
                             Text(
                                 text = "گیت‌هاب",
                                 fontSize = 8.sp,
